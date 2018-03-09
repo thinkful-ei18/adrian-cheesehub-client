@@ -21,7 +21,7 @@ export const fetchCheesesError = error => ({
     error
 });
 
-// export const fetchCheesesRequest = () => (dispatch, getState) => {
+// export const fetchCheeseList = () => (dispatch, getState) => {
 //     return fetch(`${API_BASE_URL}/protected`, {
 //         method: 'GET'
 //     })
