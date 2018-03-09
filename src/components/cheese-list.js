@@ -1,8 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default function CheeseList (props) {
+export function CheeseList (props) {
 
-const cheeses = props.cheeseList.map((cheese, index) =>
+const allCheeses = props.cheeseList.map((cheese, index) =>
   <li key={index} className="cheese-list-cheese">
     {cheese}
   </li>
@@ -11,9 +12,17 @@ const cheeses = props.cheeseList.map((cheese, index) =>
 return (
   <div className="cheese-list-wrapper">
     <ul className="cheese-list">
-      {cheeses}
+      {allCheeses}
     </ul>
   </div>
 );
 
 }
+
+const mapStateToProps = state => ({
+  cheeses: state.cheeses,
+  loading: state.loading,
+  error: state.error
+});
+
+export default connect(mapStateToProps)(CheeseList);
