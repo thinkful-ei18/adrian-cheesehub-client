@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function CheeseList (props) {
 
-const cheeses = props.cheeseList.map(cheese =>
-  <li className="cheese-list-cheese">
+const cheeses = props.cheeseList.map((cheese, index) =>
+  <li key={index} className="cheese-list-cheese">
     {cheese}
   </li>
 );
