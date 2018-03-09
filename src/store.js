@@ -3,6 +3,8 @@ import thunk from 'redux-thunk';
 import {cheeseReducer} from './reducers/cheese';
 
 // applyMiddleware(thunk)
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 export default createStore (
-    cheeseReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    cheeseReducer, applyMiddleware(thunk)
 );
