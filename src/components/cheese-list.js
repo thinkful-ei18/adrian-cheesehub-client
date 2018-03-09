@@ -6,18 +6,18 @@ export class CheeseList extends React.Component {
 render () {
 
 
-//   const allCheeses = this.props.cheeses.map((cheese, index) =>
-//   <li key={index} className="cheese-list-cheese">
-//     {cheese}
-//   </li>
-// );
+  const allCheeses = this.props.cheeses.map((cheese, index) =>
+  <li key={index} className="cheese-list-cheese">
+    {cheese}
+  </li>
+);
 
 console.log(this.props.cheeses);
 
 return (
   <div className="cheese-list-wrapper">
     <ul className="cheese-list">
-      {/* {allCheeses} */}
+      {allCheeses}
     </ul>
   </div>
 );
