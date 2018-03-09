@@ -23,7 +23,7 @@ export const fetchCheesesError = error => ({
 });
 
 export const fetchCheeses = cheese => dispatch => {
-  console.log('Fetching cheese:', cheese);
+  console.log('Fetching cheese....');
   dispatch(fetchCheesesRequest());
   getCheese(cheese)
     .then(cheeses => {

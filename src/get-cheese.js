@@ -8,7 +8,7 @@ export default function getCheese(cheese) {
             return Promise.reject(res.statusText);
         }
         return res.json();
-    }).then(data => data.results.map(cheese => cheese));
+    }).then(data => data.map(cheese => cheese));
 }
 
 // export const fetchCheeseList = () => (dispatch, getState) => {

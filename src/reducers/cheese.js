@@ -19,12 +19,6 @@ export function cheeseReducer(state=initialState, action) {
   }
   else if (action.type === FETCH_CHEESES_SUCCESS) {
 
-    if (action.cheeses.length < 1) {
-      const error = 'Could not find any cheese!'
-      return Object.assign({}, state,
-      {error: error, loading: false});
-    }
-
     return Object.assign({}, state,
       {
       cheeses: action.data,
