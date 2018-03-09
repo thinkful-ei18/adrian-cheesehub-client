@@ -1,7 +1,9 @@
 import {FETCH_CHEESES_ERROR, FETCH_CHEESES_SUCCESS, FETCH_CHEESES_REQUEST} from '../actions/cheese'
 
 const initialState = {
-  cheeses: [],
+  cheeses: ["Bath Blue",
+    "Barkham Blue",
+    "Buxton Blue"],
   loading: false,
   error: null
 }
