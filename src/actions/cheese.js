@@ -21,17 +21,6 @@ export const fetchCheesesError = error => ({
     error
 });
 
-// export const fetchCheeseList = () => (dispatch, getState) => {
-//     return fetch(`${API_BASE_URL}/protected`, {
-//         method: 'GET'
-//     })
-//         .then(res => res.json())
-//         .then(({data}) => dispatch(fetchCheesesSuccess(data)))
-//         .catch(err => {
-//             dispatch(fetchCheesesError(err));
-//         });
-// };
-
 export const fetchCheeses = cheese => dispatch => {
   console.log('Fetching cheese:', cheese);
   dispatch(fetchCheesesRequest());
