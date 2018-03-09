@@ -2,7 +2,6 @@
 
 // The async action should dispatch its sync counterparts, fetchCheesesRequest, fetchCheesesSuccess and fetchCheesesError.
 
-import {API_BASE_URL} from '../config';
 import getCheese from '../get-cheese';
 
 
