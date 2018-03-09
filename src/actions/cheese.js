@@ -3,6 +3,8 @@
 // The async action should dispatch its sync counterparts, fetchCheesesRequest, fetchCheesesSuccess and fetchCheesesError.
 
 import {API_BASE_URL} from '../config';
+import getCheese from '../get-cheese';
+
 
 export const FETCH_CHEESES_REQUEST = 'FETCH_CHEESES_REQUEST';
 export const fetchCheesesRequest = () => ({
@@ -24,7 +26,7 @@ export const fetchCheesesError = error => ({
 export const fetchCheeses = cheese => dispatch => {
   console.log('Fetching cheese:', cheese);
   dispatch(fetchCheesesRequest());
-  fetchCheeses(cheese)
+  getCheese(cheese)
     .then(cheeses => {
     console.log('Found:', cheeses);
     dispatch(fetchCheesesSuccess(cheeses));
