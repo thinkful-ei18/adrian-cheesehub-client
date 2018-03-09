@@ -1,7 +1,7 @@
 
 import {API_BASE_URL} from './config';
 
-export function getCheese(cheese) {
+export default function getCheese(cheese) {
 
     return fetch(`${API_BASE_URL}/cheeses`).then(res => {
         if (!res.ok) {
