@@ -4,26 +4,45 @@
 
 import {API_BASE_URL} from '../config';
 
+export const FETCH_CHEESES_REQUEST = 'FETCH_CHEESES_REQUEST';
+export const fetchCheesesRequest = () => ({
+    type: FETCH_CHEESES_REQUEST
+});
 
-export const FETCH_CHEESE_SUCCESS = 'FETCH_CHEESE_SUCCESS';
+export const FETCH_CHEESES_SUCCESS = 'FETCH_CHEESES_SUCCESS';
 export const fetchCheesesSuccess = data => ({
-    type: FETCH_CHEESE_SUCCESS,
+    type: FETCH_CHEESES_SUCCESS,
     data
 });
 
-export const FETCH_CHEESE_ERROR = 'FETCH_CHEESE_ERROR';
+export const FETCH_CHEESES_ERROR = 'FETCH_CHEESES_ERROR';
 export const fetchCheesesError = error => ({
-    type: FETCH_CHEESE_ERROR,
+    type: FETCH_CHEESES_ERROR,
     error
 });
 
-export const fetchCheesesRequest = () => (dispatch, getState) => {
-    return fetch(`${API_BASE_URL}/protected`, {
-        method: 'GET'
+// export const fetchCheesesRequest = () => (dispatch, getState) => {
+//     return fetch(`${API_BASE_URL}/protected`, {
+//         method: 'GET'
+//     })
+//         .then(res => res.json())
+//         .then(({data}) => dispatch(fetchCheesesSuccess(data)))
+//         .catch(err => {
+//             dispatch(fetchCheesesError(err));
+//         });
+// };
+
+export const fetchCheeses = cheese => dispatch => {
+  console.log('Fetching cheese:', cheese);
+  dispatch(fetchCheesesRequest());
+  fetchCheeses(cheese)
+    .then(cheeses => {
+    console.log('Found:', cheeses);
+    dispatch(fetchCheesesSuccess(cheeses));
     })
-        .then(res => res.json())
-        .then(({data}) => dispatch(fetchCheesesSuccess(data)))
-        .catch(err => {
-            dispatch(fetchCheesesError(err));
-        });
+    .catch(error => {
+    console.log('Could not find:', cheese, 'Error:', error);
+    dispatch(fetchCheesesError(error));
+  });
+
 };
